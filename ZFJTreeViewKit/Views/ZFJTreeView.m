@@ -7,9 +7,10 @@
 //
 
 #import "ZFJTreeView.h"
-#import "ZFJNodeModel.h"
 #import "ZFJTreeViewCell.h"
-#import "ZFJNodeTool.h"
+#import "ZFJNodeModel.h"
+#import "ZFJTreeViewConfig.h"
+#import "ZFJError.h"
 
 @interface ZFJTreeView ()<UITableViewDataSource, UITableViewDelegate>
 

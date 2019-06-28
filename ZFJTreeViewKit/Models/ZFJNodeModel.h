@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class ZFJNodeModel;
+
+@class ZFJNodeModel, ZFJNodeTool;
 
 NS_ASSUME_NONNULL_BEGIN
 

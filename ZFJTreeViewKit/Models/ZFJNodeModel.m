@@ -7,6 +7,7 @@
 //
 
 #import "ZFJNodeModel.h"
+#import "ZFJNodeTool.h"
 
 @implementation ZFJNodeModel
 

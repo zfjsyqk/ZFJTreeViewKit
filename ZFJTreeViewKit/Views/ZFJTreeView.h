@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class ZFJNodeModel, ZFJTreeView, ZFJTreeViewConfig;
+
+@class ZFJTreeView, ZFJNodeModel, ZFJTreeViewConfig, ZFJError;
 
 NS_ASSUME_NONNULL_BEGIN
 
