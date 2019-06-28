@@ -91,7 +91,7 @@ ZFJTreeViewKit一款高效简单而且扩展性极强的树状列表视图。-DE
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "ZFJTreeViewKit", "ZFJTreeViewKit/**/*.{h,m}"
+  spec.source_files  = "ZFJTreeViewKit", "ZFJTreeViewKit/**/*"
   #spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
