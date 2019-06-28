@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZFJError.h"
 
 @class ZFJTreeView;
-@class ZFJError;
 @class ZFJTreeViewConfig;
 @class ZFJNodeModel;
 
