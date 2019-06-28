@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class ZFJNodeModel, ZFJError;
+@class ZFJNodeModel;
+@class ZFJError;
 
 NS_ASSUME_NONNULL_BEGIN
 
