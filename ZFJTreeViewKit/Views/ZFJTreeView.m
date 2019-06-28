@@ -10,7 +10,6 @@
 #import "ZFJTreeViewCell.h"
 #import "ZFJNodeModel.h"
 #import "ZFJTreeViewConfig.h"
-#import "ZFJError.h"
 
 @interface ZFJTreeView ()<UITableViewDataSource, UITableViewDelegate>
 
