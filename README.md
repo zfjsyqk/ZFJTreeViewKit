@@ -14,9 +14,13 @@ ZFJTreeViewKit一款高效简单扩展性极强而且可以无限插入子节点
 |博客地址 | https://zfj1128.blog.csdn.net/article/details/94393642 |
 #### 软件架构
 具体结构图如下：
+
 <img src="https://img-blog.csdnimg.cn/20190701143250610.png" width="550" hegiht="386" align=center />
+
 项目的主要类就是ZFJTreeView和ZFJNodeModel，在ZFJTreeView中我们主要封装了一个ZFJTreeView的公共方法，需要主要说明的就是我们的节点数据模型了ZFJNodeModel，其结构图如下：
+
 <img src="https://img-blog.csdnimg.cn/20190701143315697.png" width="1000" hegiht="410" align=center />
+
 ZFJNodeModel包含了节点的关键信息，最重要的就是nodeKey了，这里是ZFJTreeViewKit自动生成，并不需要用户管理和操心，为了方便用户使用和ZFJTreeViewKit的扩展，笔者在这里提供了`@property (nonatomic,strong) NSObject *sourceModel;`自定义数据源模型，用户可以传入自己自定义的数据模型，方便在CELL中使用；
 说到CELL，ZFJTreeViewKit不提供CELL的样式，需要用户自己定义和设计CELL，这也给用户提供了极高的自由度，方便用户根据需求来设计自己的样式功能，但是用户一定要在`@property (nonatomic,  copy) Class nodeCellCls;`中注册自己的CELL。
 #### 安装教程
@@ -63,7 +67,9 @@ NSLog(@"%@",error.message);
 ```
 从上面的代码可以看到，我们需要设置CELL的高度、自定义数据模型Model（如果有）、注册自定义CELL（必须要有）然后就是调用插入事件了！
 效果如图：
+
 <img src="https://img-blog.csdnimg.cn/20190701145905599.PNG" width="250" hegiht="4444" align=center />
+
 接着我们添加二级节点：
 ```
 #pragma mark - 添加二级节点
@@ -82,7 +88,9 @@ NSLog(@"%@",error.message);
 }
 ```
 从上面的代码我们可以看出，我把所有的一级节点存到数组self.dataArr_1中，然后给所有的一级节点都添加了两个二级节点，所有的二级节点都设置了父节点`ZFJNodeModel *model_f2 = [[ZFJNodeModel alloc] initWithParentNodeModel:model_f1];`，效果图如下：
+
 <img src="https://img-blog.csdnimg.cn/20190701145934674.PNG" width="250" hegiht="4444" align=center />
+
 继续添加三级节点：
 ```
 #pragma mark - 添加三级节点
@@ -101,7 +109,9 @@ NSLog(@"%@",error.message);
 }
 ```
 同样的道理，需要设置父节点`ZFJNodeModel *model_f3 = [[ZFJNodeModel alloc] initWithParentNodeModel:model_f2];`，效果图如下：
+
 <img src="https://img-blog.csdnimg.cn/20190701145953169.PNG" width="250" hegiht="4444" align=center />
+
 <font color=#f00 size=5 face="黑体">同理，我们可以一直往下添加子节点，为某个节点动态添加子节点，但是一定要设置对父节点！！！</font>
 ##### 公共方法
 在ZFJTreeView的公共方法里面，我提供了对常用的点击、展开、折叠、插入、删除、查询等操作，具体如下：
@@ -251,11 +261,14 @@ self.treeView.headerView = headerView;
 ```
 ##### 整体效果
 这是添加了十级子节点的效果图：
+
 <img src="https://img-blog.csdnimg.cn/2019070115171785.PNG" width="250" hegiht="4444" align=center />
 
 #### 使用场景
 这种类型的控件使用场景是非常多的，比如地址多级选择、抖音评论列表还有一些社区评论列表等等！
+
 <img src="https://img-blog.csdnimg.cn/2019070115271016.PNG" width="250" hegiht="4444" align=center />
+
 <font color=#f00 size=5 face="黑体">更多UI效果等你来设计！！！</font>
 #### 结束语
 这里Demo的样式效果比较丑，大家将就一下吧😂😂😂，但是代码绝对是高效而且工工整整注释详细的！👍👍👍
