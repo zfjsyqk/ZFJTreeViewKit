@@ -94,7 +94,7 @@ ZFJTreeViewKit一款高效简单而且扩展性极强的树状列表视图。-DE
   spec.source_files  = "ZFJTreeViewKit", "ZFJTreeViewKit/**/*"
   #spec.exclude_files = "Classes/Exclude"
 
-  spec.public_header_files = "ZFJTreeViewKit/**/ZFJTreeViewKit.h"
+  spec.public_header_files = "ZFJTreeViewKit/ZFJTreeViewKit.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
