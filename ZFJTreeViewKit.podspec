@@ -94,7 +94,7 @@ ZFJTreeViewKit一款高效简单扩展性极强而且可以无限插入子节点
   spec.source_files  = "ZFJTreeViewKit", "ZFJTreeViewKit/**/*"
   #spec.exclude_files = "Classes/Exclude"
 
-  spec.public_header_files = "ZFJTreeViewKit/ZFJTreeViewKit.h"
+  spec.public_header_files = "ZFJTreeViewKit/ZFJTreeViewKit.pch"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
