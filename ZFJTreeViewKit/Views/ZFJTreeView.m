@@ -141,7 +141,7 @@
     [self.tableView deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
 }
 
-- (void)expandNode:(ZFJNodeModel *)model completed:(void(^)(ZFJError *error))completed{
+- (void)expandAllNodes:(ZFJNodeModel *)model completed:(void(^)(ZFJError *error))completed{
     NSAssert([ZFJNodeTool verifyExtNodeModel:model nodeKeysDict:self.nodeKeysDict completed:completed] != NO, @"🙅‍♂️验证不通过🙅‍♂️");
     if([self.dataArray containsObject:model]){
         //先判断有没有子节点
@@ -158,6 +158,40 @@
             ZFJNodeModel *model_part = (ZFJNodeModel *)obj;
             if([model_part.nodeKey containsString:_parentNodeKey]){
                 [model_part upDateExpand:!expand];
+                [self.dataArray replaceObjectAtIndex:idx withObject:model_part];
+                [paths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+            }
+        }];
+        [self.tableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
+    }else{
+        if(completed){
+            completed([[ZFJError alloc] initWithCode:10002]);
+        }
+    }
+}
+
+- (void)expandChildNodes:(ZFJNodeModel *)model completed:(void(^)(ZFJError *error))completed{
+    NSAssert([ZFJNodeTool verifyExtNodeModel:model nodeKeysDict:self.nodeKeysDict completed:completed] != NO, @"🙅‍♂️验证不通过🙅‍♂️");
+    if([self.dataArray containsObject:model]){
+        //先判断有没有子节点
+        if(model.childNodesCount == 0){
+            if(completed){
+                completed([[ZFJError alloc] initWithCode:10003]);
+            }
+            return;
+        }
+        BOOL expand = [self getchildNodesExpandState:model];
+        NSMutableArray *paths = [[NSMutableArray alloc] init];
+        NSString *_parentNodeKey = [NSString stringWithFormat:@"%@_",model.nodeKey];
+        [self.dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            ZFJNodeModel *model_part = (ZFJNodeModel *)obj;
+            if([model_part.nodeKey containsString:_parentNodeKey]){
+                NSString *footer_str = [model_part.nodeKey substringFromIndex:_parentNodeKey.length];
+                if([footer_str containsString:@"_"]){
+                    [model_part upDateExpand:NO];
+                }else{
+                    [model_part upDateExpand:!expand];
+                }
                 [self.dataArray replaceObjectAtIndex:idx withObject:model_part];
                 [paths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
             }
@@ -236,6 +270,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [_tableView setSeparatorStyle:_configModel.separatorStyle];
+        _tableView.backgroundColor = self.backgroundColor;
         if (@available(iOS 11.0, *)){
             _tableView.estimatedRowHeight = 0;
             _tableView.estimatedSectionFooterHeight = 0;
@@ -265,6 +300,11 @@
         _cellheightDic = [[NSMutableDictionary alloc] init];
     }
     return _cellheightDic;
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor{
+    [super setBackgroundColor:backgroundColor];
+    self.tableView.backgroundColor = backgroundColor;
 }
 
 @end

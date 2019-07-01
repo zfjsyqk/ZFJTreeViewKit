@@ -9,20 +9,32 @@
 #import <UIKit/UIKit.h>
 #import "ZFJError.h"
 
-@class ZFJTreeView;
-@class ZFJTreeViewConfig;
-@class ZFJNodeModel;
+@class ZFJTreeView, ZFJTreeViewConfig, ZFJNodeModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ZFJTreeViewDelegate <NSObject>
 
+/**
+ 节点点击事件代理
+
+ @param listView ZFJTreeView
+ @param model 节点model
+ @param indexPath indexPath
+ */
 - (void)treeListView:(ZFJTreeView *)listView didSelectNodeModel:(ZFJNodeModel *)model indexPath:(NSIndexPath *)indexPath;
 
 @end
 
 @interface ZFJTreeView : UIView
 
+/**
+ 初始化方法
+
+ @param frame frame
+ @param config ZFJTreeView配置文件
+ @return self
+ */
 - (instancetype)initWithFrame:(CGRect)frame config:(ZFJTreeViewConfig *)config;
 
 /**
@@ -55,12 +67,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteNode:(ZFJNodeModel *)model completed:(void(^)(ZFJError *error))completed;
 
 /**
- 展开/折叠某个节点
+ 展开/折叠某个节点的所以子节点
 
  @param model 节点model（需要展开/折叠的父节点）
  @param completed 错误信息回调
  */
-- (void)expandNode:(ZFJNodeModel *)model completed:(void(^)(ZFJError *error))completed;
+- (void)expandAllNodes:(ZFJNodeModel *)model completed:(void(^)(ZFJError *error))completed;
+
+/**
+ 展开/折叠某个节点的下一级子节点
+
+ @param model 节点model（需要展开/折叠的父节点）
+ @param completed 错误信息回调
+ */
+- (void)expandChildNodes:(ZFJNodeModel *)model completed:(void(^)(ZFJError *error))completed;
 
 /**
  展开/折叠全部节点
