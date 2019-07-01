@@ -91,7 +91,7 @@ ZFJTreeViewKit一款高效简单扩展性极强而且可以无限插入子节点
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.prefix_header_file = "ZFJTreeViewKit/ZFJTreeViewKit.pch"
+  #  spec.prefix_header_file = "ZFJTreeViewKit/ZFJTreeViewKit.pch"
 
   spec.source_files  = "ZFJTreeViewKit", "ZFJTreeViewKit/**/*"
   #spec.exclude_files = "Classes/Exclude"
