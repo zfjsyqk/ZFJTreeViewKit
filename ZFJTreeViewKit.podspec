@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ZFJTreeViewKit"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "ZFJTreeViewKit一款高效简单扩展性极强而且可以无限插入子节点的树状列表视图。"
 
   # This description is used to generate tags and improve search results.
@@ -93,7 +93,7 @@ ZFJTreeViewKit一款高效简单扩展性极强而且可以无限插入子节点
 
   #  spec.prefix_header_file = "ZFJTreeViewKit/ZFJTreeViewKit.pch"
 
-  spec.source_files  = "ZFJTreeViewKit", "ZFJTreeViewKit/**/*"
+  spec.source_files  = "ZFJTreeViewKit/**/*"
   #spec.exclude_files = "Classes/Exclude"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
